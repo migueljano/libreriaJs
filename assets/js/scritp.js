@@ -33,6 +33,12 @@ fetch("https://striveschool-api.herokuapp.com/books")
         price.className = "card-text";
         price.innerText = `Prezzo: €${object.price}`;
         cardContent.appendChild(price);
+        
+
+        const category = document.createElement ("button")
+        category.className = "btn btn-dark text-white m-2"
+        category.innerText = object.category
+        cardContent.appendChild(category);
 
  
         const btnCardDelete = document.createElement("button");
@@ -40,7 +46,8 @@ fetch("https://striveschool-api.herokuapp.com/books")
         btnCardDelete.innerText = "Delete";
         cardContent.appendChild(btnCardDelete);
 
-        btnCardDelete.addEventListener("click", () => {
+        btnCardDelete.addEventListener("click", function(e) {
+            e.preventDefault();
             newCard.remove(); 
      });
 
@@ -53,6 +60,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
     btnCardAdd.innerText = "Add";
     btnCardAdd.addEventListener("click", () => {
     console.log("Aggiunto alla lista!");
+   
     
      });
 
